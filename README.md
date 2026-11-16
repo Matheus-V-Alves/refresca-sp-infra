@@ -16,7 +16,7 @@ Todo o ambiente é provisionado por scripts Bash, sem configuração manual no s
 | Igor Soos | RM556010 |
 | Gustavo Coelho | RM556289 |
 
-**Vídeo demonstrativo:** _link do vídeo_
+**Vídeo demonstrativo:** https://youtu.be/fv862NBscdk https://youtu.be/fv862NBscdk
 
 ---
 
