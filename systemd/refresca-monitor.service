@@ -1,0 +1,33 @@
+# =============================================================================
+# refresca-monitor.service — monitoramento contínuo de CPU, memória, disco e API
+# Instalada por monitor/install-monitor.sh em /etc/systemd/system/
+#
+# Administração:
+#   sudo systemctl start|stop|restart|status refresca-monitor
+#   journalctl -u refresca-monitor -f
+# =============================================================================
+[Unit]
+Description=Refresca SP - Monitoramento de recursos (CPU, RAM, disco) e da API
+After=network-online.target refresca-api.service
+Wants=network-online.target
+StartLimitIntervalSec=300
+StartLimitBurst=5
+OnFailure=refresca-failure@%n.service
+
+[Service]
+Type=simple
+User=refresca-mon
+Group=refresca-mon
+ExecStart=/opt/refresca/monitor/monitor.sh --daemon
+# Tolerância a falhas: se for interrompido (kill, erro), o systemd reinicia em 5s
+Restart=always
+RestartSec=5
+
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/var/log/refresca/monitor
+
+[Install]
+WantedBy=multi-user.target

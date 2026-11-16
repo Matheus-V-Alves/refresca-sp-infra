@@ -1,0 +1,11 @@
+# =============================================================================
+# refresca-failure@.service — acionada via OnFailure= quando uma unidade do
+# projeto entra em estado "failed" (esgotou as tentativas de reinício).
+# %i = nome da unidade que falhou.
+# =============================================================================
+[Unit]
+Description=Refresca SP - registrar falha da unidade %i
+
+[Service]
+Type=oneshot
+ExecStart=/opt/refresca/bin/registrar-falha.sh %i

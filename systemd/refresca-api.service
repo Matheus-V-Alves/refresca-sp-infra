@@ -1,0 +1,40 @@
+# =============================================================================
+# refresca-api.service — API de Pontos de Refúgio do Refresca SP (ASP.NET Core)
+# Instalada por app/deploy-app.sh em /etc/systemd/system/
+# Código: repositório da disciplina de C# Software Development
+# =============================================================================
+[Unit]
+Description=Refresca SP - API de Pontos de Refugio (.NET)
+After=network-online.target
+Wants=network-online.target
+# Se reiniciar mais de 5 vezes em 5 minutos, desiste e entra em "failed"...
+StartLimitIntervalSec=300
+StartLimitBurst=5
+# ...e o estado "failed" aciona o registro em /var/log/refresca/servicos-falhas.log
+OnFailure=refresca-failure@%n.service
+
+[Service]
+Type=simple
+User=refresca
+Group=refresca
+WorkingDirectory=/opt/refresca/api
+EnvironmentFile=/etc/refresca/refresca.env
+ExecStart=/opt/dotnet/dotnet /opt/refresca/api/RefrescaSP.Api.dll
+# Tolerância a falhas: se o processo cair por qualquer motivo, volta em 5s
+Restart=always
+RestartSec=5
+# Encerramento gracioso do ASP.NET Core (recomendação da Microsoft)
+KillSignal=SIGINT
+TimeoutStopSec=15
+StandardOutput=append:/var/log/refresca/app/api.log
+StandardError=append:/var/log/refresca/app/api.log
+
+# Endurecimento: o serviço só escreve no banco e no próprio log
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/var/lib/refresca /var/log/refresca/app
+
+[Install]
+WantedBy=multi-user.target

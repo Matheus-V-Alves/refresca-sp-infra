@@ -1,0 +1,132 @@
+2026-11-16 03:28:42 +0000 | vm-refresca-sp | setup.sh | INFO  | setup | ===== Provisionamento Refresca SP iniciado por azureuser — 8 etapa(s) =====
+2026-11-16 03:28:42 +0000 | vm-refresca-sp | setup.sh | INFO  | setup | >>>>> Etapa 01-hostname
+2026-11-16 03:28:42 +0000 | vm-refresca-sp | 01-hostname.sh | INFO  | hostname | Hostname atual: vm-refresca-sp | novo: refresca-srv01 (FQDN refresca-srv01.refresca.local)
+2026-11-16 03:28:42 +0000 | vm-refresca-sp | 01-hostname.sh | INFO  | hostname | INICIO  -> Configurar cloud-init para preservar hostname
+2026-11-16 03:28:42 +0000 | vm-refresca-sp | 01-hostname.sh | OK    | hostname | SUCESSO -> Configurar cloud-init para preservar hostname (0s)
+2026-11-16 03:28:42 +0000 | vm-refresca-sp | 01-hostname.sh | INFO  | hostname | INICIO  -> Registrar refresca-srv01.refresca.local e aliases no /etc/hosts
+2026-11-16 03:28:42 +0000 | vm-refresca-sp | 01-hostname.sh | OK    | hostname | SUCESSO -> Registrar refresca-srv01.refresca.local e aliases no /etc/hosts (0s)
+2026-11-16 03:28:42 +0000 | vm-refresca-sp | 01-hostname.sh | INFO  | hostname | INICIO  -> Aplicar hostname refresca-srv01
+2026-11-16 03:28:42 +0000 | refresca-srv01 | 01-hostname.sh | OK    | hostname | SUCESSO -> Aplicar hostname refresca-srv01 (0s)
+2026-11-16 03:28:42 +0000 | refresca-srv01 | 01-hostname.sh | INFO  | hostname | INICIO  -> Definir fuso horário America/Sao_Paulo
+2026-11-16 00:28:43 -0300 | refresca-srv01 | 01-hostname.sh | OK    | hostname | SUCESSO -> Definir fuso horário America/Sao_Paulo (1s)
+2026-11-16 00:28:43 -0300 | refresca-srv01 | 01-hostname.sh | INFO  | hostname | INICIO  -> Validar resolução local de refresca-srv01.refresca.local
+2026-11-16 00:28:43 -0300 | refresca-srv01 | 01-hostname.sh | OK    | hostname | SUCESSO -> Validar resolução local de refresca-srv01.refresca.local (0s)
+2026-11-16 00:28:43 -0300 | refresca-srv01 | 01-hostname.sh | OK    | hostname | Identidade: hostname=refresca-srv01 | fqdn=refresca-srv01.refresca.local | tz=America/Sao_Paulo
+2026-11-16 00:28:43 -0300 | refresca-srv01 | setup.sh | INFO  | setup | >>>>> Etapa 02-network
+2026-11-16 00:28:43 -0300 | refresca-srv01 | 02-network.sh | INFO  | rede | Interface eth0 | MAC 7c:ed:8d:b1:37:ae | driver hv_netvsc | IP atual 172.16.0.4 | IP desejado 172.16.0.4/24
+2026-11-16 00:28:43 -0300 | refresca-srv01 | 02-network.sh | INFO  | rede | INICIO  -> Backup da configuração de rede atual
+2026-11-16 00:28:43 -0300 | refresca-srv01 | 02-network.sh | OK    | rede | SUCESSO -> Backup da configuração de rede atual (0s)
+2026-11-16 00:28:43 -0300 | refresca-srv01 | 02-network.sh | INFO  | rede | INICIO  -> Desativar a configuração de rede do cloud-init
+2026-11-16 00:28:43 -0300 | refresca-srv01 | 02-network.sh | OK    | rede | SUCESSO -> Desativar a configuração de rede do cloud-init (0s)
+2026-11-16 00:28:43 -0300 | refresca-srv01 | 02-network.sh | INFO  | rede | INICIO  -> Gerar /etc/netplan/60-refresca.yaml (IP fixo + DNS)
+2026-11-16 00:28:43 -0300 | refresca-srv01 | 02-network.sh | OK    | rede | SUCESSO -> Gerar /etc/netplan/60-refresca.yaml (IP fixo + DNS) (0s)
+2026-11-16 00:28:43 -0300 | refresca-srv01 | 02-network.sh | INFO  | rede | INICIO  -> Validar sintaxe (netplan generate)
+2026-11-16 00:28:43 -0300 | refresca-srv01 | 02-network.sh | OK    | rede | SUCESSO -> Validar sintaxe (netplan generate) (0s)
+2026-11-16 00:28:43 -0300 | refresca-srv01 | 02-network.sh | INFO  | rede | INICIO  -> Aplicar configuração (netplan apply)
+2026-11-16 00:28:44 -0300 | refresca-srv01 | 02-network.sh | OK    | rede | SUCESSO -> Aplicar configuração (netplan apply) (1s)
+2026-11-16 00:28:49 -0300 | refresca-srv01 | 02-network.sh | INFO  | rede | INICIO  -> Conferir IP 172.16.0.4 em eth0
+2026-11-16 00:28:49 -0300 | refresca-srv01 | 02-network.sh | OK    | rede | SUCESSO -> Conferir IP 172.16.0.4 em eth0 (0s)
+2026-11-16 00:28:49 -0300 | refresca-srv01 | 02-network.sh | INFO  | rede | INICIO  -> Conferir rota padrão via 172.16.0.1
+2026-11-16 00:28:49 -0300 | refresca-srv01 | 02-network.sh | OK    | rede | SUCESSO -> Conferir rota padrão via 172.16.0.1 (0s)
+2026-11-16 00:28:49 -0300 | refresca-srv01 | 02-network.sh | INFO  | rede | INICIO  -> Resolver nome externo pelo DNS (archive.ubuntu.com)
+2026-11-16 00:28:49 -0300 | refresca-srv01 | 02-network.sh | OK    | rede | SUCESSO -> Resolver nome externo pelo DNS (archive.ubuntu.com) (0s)
+2026-11-16 00:28:49 -0300 | refresca-srv01 | 02-network.sh | INFO  | rede | INICIO  -> Testar saída para a internet (TCP 80)
+2026-11-16 00:28:49 -0300 | refresca-srv01 | 02-network.sh | OK    | rede | SUCESSO -> Testar saída para a internet (TCP 80) (0s)
+2026-11-16 00:28:50 -0300 | refresca-srv01 | 02-network.sh | INFO  | rede | INICIO  -> Resolver nome local (refresca-srv01.refresca.local)
+2026-11-16 00:28:50 -0300 | refresca-srv01 | 02-network.sh | OK    | rede | SUCESSO -> Resolver nome local (refresca-srv01.refresca.local) (1s)
+2026-11-16 00:28:50 -0300 | refresca-srv01 | 02-network.sh | INFO  | rede | INICIO  -> Registrar estado final da rede
+2026-11-16 00:28:50 -0300 | refresca-srv01 | 02-network.sh | OK    | rede | SUCESSO -> Registrar estado final da rede (0s)
+2026-11-16 00:28:50 -0300 | refresca-srv01 | 02-network.sh | OK    | rede | Rede configurada: 172.16.0.4/24 via 172.16.0.1 | DNS 168.63.129.16 1.1.1.1 | domínio refresca.local
+2026-11-16 00:28:50 -0300 | refresca-srv01 | setup.sh | INFO  | setup | >>>>> Etapa 03-packages
+2026-11-16 00:28:50 -0300 | refresca-srv01 | 03-packages.sh | INFO  | pacotes | INICIO  -> Atualizar índice de pacotes (apt-get update)
+2026-11-16 00:29:01 -0300 | refresca-srv01 | 03-packages.sh | OK    | pacotes | SUCESSO -> Atualizar índice de pacotes (apt-get update) (11s)
+2026-11-16 00:29:01 -0300 | refresca-srv01 | 03-packages.sh | INFO  | pacotes | INICIO  -> Atualizar pacotes do sistema (apt-get upgrade)
+2026-11-16 00:29:46 -0300 | refresca-srv01 | 03-packages.sh | OK    | pacotes | SUCESSO -> Atualizar pacotes do sistema (apt-get upgrade) (45s)
+2026-11-16 00:29:46 -0300 | refresca-srv01 | 03-packages.sh | INFO  | pacotes | INICIO  -> Instalar dependências: git ufw sqlite3 nginx libicu74 logrotate jq stress-ng sysstat curl
+2026-11-16 00:29:59 -0300 | refresca-srv01 | 03-packages.sh | OK    | pacotes | SUCESSO -> Instalar dependências: git ufw sqlite3 nginx libicu74 logrotate jq stress-ng sysstat curl (13s)
+2026-11-16 00:29:59 -0300 | refresca-srv01 | 03-packages.sh | INFO  | pacotes | INICIO  -> Registrar versões instaladas em install.log
+2026-11-16 00:29:59 -0300 | refresca-srv01 | 03-packages.sh | OK    | pacotes | SUCESSO -> Registrar versões instaladas em install.log (0s)
+2026-11-16 00:29:59 -0300 | refresca-srv01 | 03-packages.sh | WARN  | pacotes | Atualização exige reinicialização (kernel). Faça ao final do setup — serve como teste de reboot.
+2026-11-16 00:29:59 -0300 | refresca-srv01 | setup.sh | INFO  | setup | >>>>> Etapa 04-users-dirs
+2026-11-16 00:29:59 -0300 | refresca-srv01 | 04-users-dirs.sh | INFO  | usuarios | INICIO  -> Criar grupo de operadores refresca-ops
+2026-11-16 00:29:59 -0300 | refresca-srv01 | 04-users-dirs.sh | OK    | usuarios | SUCESSO -> Criar grupo de operadores refresca-ops (0s)
+2026-11-16 00:29:59 -0300 | refresca-srv01 | 04-users-dirs.sh | INFO  | usuarios | INICIO  -> Criar usuário de serviço da API (refresca)
+2026-11-16 00:30:00 -0300 | refresca-srv01 | 04-users-dirs.sh | OK    | usuarios | SUCESSO -> Criar usuário de serviço da API (refresca) (1s)
+2026-11-16 00:30:00 -0300 | refresca-srv01 | 04-users-dirs.sh | INFO  | usuarios | INICIO  -> Criar usuário de serviço do monitor (refresca-mon)
+2026-11-16 00:30:00 -0300 | refresca-srv01 | 04-users-dirs.sh | OK    | usuarios | SUCESSO -> Criar usuário de serviço do monitor (refresca-mon) (0s)
+2026-11-16 00:30:00 -0300 | refresca-srv01 | 04-users-dirs.sh | INFO  | usuarios | INICIO  -> Adicionar azureuser ao grupo refresca-ops
+2026-11-16 00:30:00 -0300 | refresca-srv01 | 04-users-dirs.sh | OK    | usuarios | SUCESSO -> Adicionar azureuser ao grupo refresca-ops (0s)
+2026-11-16 00:30:00 -0300 | refresca-srv01 | 04-users-dirs.sh | INFO  | usuarios | INICIO  -> Criar diretórios e aplicar permissões
+2026-11-16 00:30:00 -0300 | refresca-srv01 | 04-users-dirs.sh | OK    | usuarios | SUCESSO -> Criar diretórios e aplicar permissões (0s)
+2026-11-16 00:30:00 -0300 | refresca-srv01 | 04-users-dirs.sh | INFO  | usuarios | INICIO  -> Configurar sudo restrito para refresca-ops
+2026-11-16 00:30:00 -0300 | refresca-srv01 | 04-users-dirs.sh | OK    | usuarios | SUCESSO -> Configurar sudo restrito para refresca-ops (0s)
+2026-11-16 00:30:00 -0300 | refresca-srv01 | 04-users-dirs.sh | INFO  | usuarios | INICIO  -> Configurar rotação de logs (logrotate)
+2026-11-16 00:30:00 -0300 | refresca-srv01 | 04-users-dirs.sh | OK    | usuarios | SUCESSO -> Configurar rotação de logs (logrotate) (0s)
+2026-11-16 00:30:00 -0300 | refresca-srv01 | 04-users-dirs.sh | OK    | usuarios | Usuários e permissões prontos. azureuser precisa sair e entrar de novo no SSH para usar o grupo refresca-ops.
+2026-11-16 00:30:00 -0300 | refresca-srv01 | setup.sh | INFO  | setup | >>>>> Etapa 05-swap
+2026-11-16 00:30:00 -0300 | refresca-srv01 | 05-swap.sh | INFO  | swap | INICIO  -> Criar e ativar swap de 2G em /swapfile
+2026-11-16 00:30:00 -0300 | refresca-srv01 | 05-swap.sh | OK    | swap | SUCESSO -> Criar e ativar swap de 2G em /swapfile (0s)
+2026-11-16 00:30:00 -0300 | refresca-srv01 | 05-swap.sh | INFO  | swap | INICIO  -> Persistir swap no /etc/fstab (sobrevive ao reboot)
+2026-11-16 00:30:00 -0300 | refresca-srv01 | 05-swap.sh | OK    | swap | SUCESSO -> Persistir swap no /etc/fstab (sobrevive ao reboot) (0s)
+2026-11-16 00:30:00 -0300 | refresca-srv01 | 05-swap.sh | INFO  | swap | INICIO  -> Ajustar vm.swappiness=10 (usa swap só sob pressão)
+2026-11-16 00:30:00 -0300 | refresca-srv01 | 05-swap.sh | OK    | swap | SUCESSO -> Ajustar vm.swappiness=10 (usa swap só sob pressão) (0s)
+2026-11-16 00:30:00 -0300 | refresca-srv01 | 05-swap.sh | OK    | swap | Memória: RAM 7.7Gi | Swap 2.0Gi 
+2026-11-16 00:30:00 -0300 | refresca-srv01 | setup.sh | INFO  | setup | >>>>> Etapa 06-firewall
+2026-11-16 00:30:00 -0300 | refresca-srv01 | 06-firewall.sh | INFO  | firewall | INICIO  -> Política padrão: negar conexões de entrada
+2026-11-16 00:30:00 -0300 | refresca-srv01 | 06-firewall.sh | OK    | firewall | SUCESSO -> Política padrão: negar conexões de entrada (0s)
+2026-11-16 00:30:00 -0300 | refresca-srv01 | 06-firewall.sh | INFO  | firewall | INICIO  -> Política padrão: permitir conexões de saída
+2026-11-16 00:30:00 -0300 | refresca-srv01 | 06-firewall.sh | OK    | firewall | SUCESSO -> Política padrão: permitir conexões de saída (0s)
+2026-11-16 00:30:00 -0300 | refresca-srv01 | 06-firewall.sh | INFO  | firewall | INICIO  -> Liberar SSH (22/tcp)
+2026-11-16 00:30:00 -0300 | refresca-srv01 | 06-firewall.sh | OK    | firewall | SUCESSO -> Liberar SSH (22/tcp) (0s)
+2026-11-16 00:30:00 -0300 | refresca-srv01 | 06-firewall.sh | INFO  | firewall | INICIO  -> Liberar HTTP (80/tcp)
+2026-11-16 00:30:00 -0300 | refresca-srv01 | 06-firewall.sh | OK    | firewall | SUCESSO -> Liberar HTTP (80/tcp) (0s)
+2026-11-16 00:30:00 -0300 | refresca-srv01 | 06-firewall.sh | INFO  | firewall | INICIO  -> Ativar o firewall
+2026-11-16 00:30:01 -0300 | refresca-srv01 | 06-firewall.sh | OK    | firewall | SUCESSO -> Ativar o firewall (1s)
+2026-11-16 00:30:01 -0300 | refresca-srv01 | 06-firewall.sh | INFO  | firewall | INICIO  -> Registrar regras ativas
+2026-11-16 00:30:01 -0300 | refresca-srv01 | 06-firewall.sh | OK    | firewall | SUCESSO -> Registrar regras ativas (0s)
+2026-11-16 00:30:01 -0300 | refresca-srv01 | 06-firewall.sh | OK    | firewall | Firewall ativo: entrada liberada apenas em 22/tcp e 80/tcp
+2026-11-16 00:30:01 -0300 | refresca-srv01 | 06-firewall.sh | WARN  | firewall | Lembrete: libere a porta 80 também no NSG do Azure para acessar a API pelo navegador
+2026-11-16 00:30:01 -0300 | refresca-srv01 | setup.sh | INFO  | setup | >>>>> Etapa deploy-app
+2026-11-16 00:30:01 -0300 | refresca-srv01 | deploy-app.sh | INFO  | aplicacao | INICIO  -> Instalar SDK .NET 10.0 em /opt/dotnet
+2026-11-16 00:30:14 -0300 | refresca-srv01 | deploy-app.sh | OK    | aplicacao | SUCESSO -> Instalar SDK .NET 10.0 em /opt/dotnet (13s)
+2026-11-16 00:30:14 -0300 | refresca-srv01 | deploy-app.sh | INFO  | aplicacao | INICIO  -> Baixar código da API (https://github.com/NicolasABorges/RefrescaSP.git)
+2026-11-16 00:30:15 -0300 | refresca-srv01 | deploy-app.sh | OK    | aplicacao | SUCESSO -> Baixar código da API (https://github.com/NicolasABorges/RefrescaSP.git) (1s)
+2026-11-16 00:30:15 -0300 | refresca-srv01 | deploy-app.sh | INFO  | aplicacao | INICIO  -> Executar testes unitários do projeto (dotnet test)
+2026-11-16 00:30:33 -0300 | refresca-srv01 | deploy-app.sh | OK    | aplicacao | SUCESSO -> Executar testes unitários do projeto (dotnet test) (18s)
+2026-11-16 00:30:33 -0300 | refresca-srv01 | deploy-app.sh | INFO  | aplicacao | INICIO  -> Publicar a aplicação em /opt/refresca/api (Release)
+2026-11-16 00:30:37 -0300 | refresca-srv01 | deploy-app.sh | OK    | aplicacao | SUCESSO -> Publicar a aplicação em /opt/refresca/api (Release) (4s)
+2026-11-16 00:30:37 -0300 | refresca-srv01 | deploy-app.sh | INFO  | aplicacao | INICIO  -> Gerar variáveis de ambiente (/etc/refresca/refresca.env)
+2026-11-16 00:30:37 -0300 | refresca-srv01 | deploy-app.sh | OK    | aplicacao | SUCESSO -> Gerar variáveis de ambiente (/etc/refresca/refresca.env) (0s)
+2026-11-16 00:30:37 -0300 | refresca-srv01 | deploy-app.sh | INFO  | aplicacao | INICIO  -> Configurar nginx como proxy reverso (porta 80)
+2026-11-16 00:30:38 -0300 | refresca-srv01 | deploy-app.sh | OK    | aplicacao | SUCESSO -> Configurar nginx como proxy reverso (porta 80) (1s)
+2026-11-16 00:30:38 -0300 | refresca-srv01 | deploy-app.sh | INFO  | aplicacao | INICIO  -> Instalar, habilitar e iniciar refresca-api.service
+2026-11-16 00:30:40 -0300 | refresca-srv01 | deploy-app.sh | OK    | aplicacao | SUCESSO -> Instalar, habilitar e iniciar refresca-api.service (2s)
+2026-11-16 00:30:40 -0300 | refresca-srv01 | deploy-app.sh | INFO  | aplicacao | INICIO  -> Aguardar a API responder em /api/refugios
+2026-11-16 00:30:42 -0300 | refresca-srv01 | deploy-app.sh | OK    | aplicacao | SUCESSO -> Aguardar a API responder em /api/refugios (2s)
+2026-11-16 00:30:42 -0300 | refresca-srv01 | deploy-app.sh | INFO  | aplicacao | INICIO  -> Testar acesso pelo nome api.refresca.local
+2026-11-16 00:30:42 -0300 | refresca-srv01 | deploy-app.sh | OK    | aplicacao | SUCESSO -> Testar acesso pelo nome api.refresca.local (0s)
+2026-11-16 00:30:42 -0300 | refresca-srv01 | deploy-app.sh | OK    | aplicacao | API no ar: http://api.refresca.local/swagger (local) | http://<IP público>/swagger (navegador)
+2026-11-16 00:30:42 -0300 | refresca-srv01 | setup.sh | INFO  | setup | >>>>> Etapa install-monitor
+2026-11-16 00:30:42 -0300 | refresca-srv01 | install-monitor.sh | INFO  | monitoramento | INICIO  -> Instalar scripts em /opt/refresca
+2026-11-16 00:30:42 -0300 | refresca-srv01 | install-monitor.sh | OK    | monitoramento | SUCESSO -> Instalar scripts em /opt/refresca (0s)
+2026-11-16 00:30:42 -0300 | refresca-srv01 | install-monitor.sh | INFO  | monitoramento | INICIO  -> Gerar limites em /etc/refresca/monitor.conf
+2026-11-16 00:30:42 -0300 | refresca-srv01 | install-monitor.sh | OK    | monitoramento | SUCESSO -> Gerar limites em /etc/refresca/monitor.conf (0s)
+2026-11-16 00:30:42 -0300 | refresca-srv01 | install-monitor.sh | INFO  | monitoramento | INICIO  -> Preparar arquivos de log do monitoramento
+2026-11-16 00:30:42 -0300 | refresca-srv01 | install-monitor.sh | OK    | monitoramento | SUCESSO -> Preparar arquivos de log do monitoramento (0s)
+2026-11-16 00:30:42 -0300 | refresca-srv01 | install-monitor.sh | INFO  | monitoramento | INICIO  -> Verificação de teste (monitor.sh --once como refresca-mon)
+2026-11-16 00:30:43 -0300 | refresca-srv01 | install-monitor.sh | OK    | monitoramento | SUCESSO -> Verificação de teste (monitor.sh --once como refresca-mon) (1s)
+2026-11-16 00:30:43 -0300 | refresca-srv01 | install-monitor.sh | INFO  | monitoramento | INICIO  -> Instalar, habilitar e iniciar refresca-monitor.service
+2026-11-16 00:30:47 -0300 | refresca-srv01 | install-monitor.sh | OK    | monitoramento | SUCESSO -> Instalar, habilitar e iniciar refresca-monitor.service (4s)
+2026-11-16 00:30:47 -0300 | refresca-srv01 | install-monitor.sh | OK    | monitoramento | Monitoramento ativo a cada 15s. Acompanhe: tail -f /var/log/refresca/monitor/monitor.log | painel: refresca-status
+2026-11-16 00:30:47 -0300 | refresca-srv01 | setup.sh | INFO  | setup | ================ RESUMO DO PROVISIONAMENTO ================
+2026-11-16 00:30:47 -0300 | refresca-srv01 | setup.sh | OK    | setup | OK    01-hostname (1s)
+2026-11-16 00:30:47 -0300 | refresca-srv01 | setup.sh | OK    | setup | OK    02-network (7s)
+2026-11-16 00:30:47 -0300 | refresca-srv01 | setup.sh | OK    | setup | OK    03-packages (69s)
+2026-11-16 00:30:47 -0300 | refresca-srv01 | setup.sh | OK    | setup | OK    04-users-dirs (1s)
+2026-11-16 00:30:47 -0300 | refresca-srv01 | setup.sh | OK    | setup | OK    05-swap (0s)
+2026-11-16 00:30:47 -0300 | refresca-srv01 | setup.sh | OK    | setup | OK    06-firewall (1s)
+2026-11-16 00:30:47 -0300 | refresca-srv01 | setup.sh | OK    | setup | OK    deploy-app (41s)
+2026-11-16 00:30:48 -0300 | refresca-srv01 | setup.sh | OK    | setup | OK    install-monitor (5s)
+2026-11-16 00:30:48 -0300 | refresca-srv01 | setup.sh | INFO  | setup | Logs: /var/log/refresca/provision/provision.log | instalações: /var/log/refresca/provision/install.log | erros: /var/log/refresca/provision/errors.log
+2026-11-16 00:30:48 -0300 | refresca-srv01 | setup.sh | OK    | setup | Ambiente Refresca SP pronto em 126s. Teste: curl http://api.refresca.local/api/refugios
+2026-11-16 00:30:48 -0300 | refresca-srv01 | setup.sh | WARN  | setup | O sistema pede reinicialização (kernel atualizado). Rode 'sudo reboot' e depois 'sudo bash tests/falhas.sh pos-reboot'.
