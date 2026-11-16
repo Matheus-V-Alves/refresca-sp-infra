@@ -31,7 +31,7 @@ FALHAS_LOG="/var/log/refresca/servicos-falhas.log"
 ESPERA=$(( MONITOR_INTERVAL + 5 ))     # tempo para o monitor completar um ciclo
 DISK_TEST_FILE="/var/tmp/refresca-teste-disco.img"
 # garante que o arquivo do teste de disco nunca fique para trás (nem com Ctrl+C)
-trap 'rm -f "$DISK_TEST_FILE"; kill "${TAIL_PID:-0}" 2>/dev/null || true' EXIT
+trap 'rm -f "$DISK_TEST_FILE"; [[ -n "${TAIL_PID:-}" ]] && kill "$TAIL_PID" 2>/dev/null; true' EXIT
 
 uso() { sed -n '3,21p' "$0" | sed 's/^# \{0,1\}//'; }
 
@@ -51,7 +51,7 @@ mostrar_desde() {       # ARQUIVO LINHA_INICIAL
 }
 
 acompanhar_alertas() { tail -n 0 -F "$ALERTS" 2>/dev/null & TAIL_PID=$!; }
-parar_acompanhamento() { kill "${TAIL_PID:-0}" 2>/dev/null || true; wait "${TAIL_PID:-0}" 2>/dev/null || true; }
+parar_acompanhamento() { [[ -n "${TAIL_PID:-}" ]] && kill "$TAIL_PID" 2>/dev/null; true; wait "${TAIL_PID:-0}" 2>/dev/null || true; }
 
 resultado() {           # 0|1 descrição
   if [[ "$1" -eq 0 ]]; then log_ok "TESTE APROVADO: $2"; else log_error "TESTE REPROVADO: $2"; return 1; fi
